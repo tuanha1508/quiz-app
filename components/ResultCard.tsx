@@ -48,32 +48,6 @@ export default function ResultCard({ result, onRestart }: ResultCardProps) {
           </p>
         </div>
 
-        <div className="mb-6">
-          <h3 className="text-sm font-semibold text-primary mb-3">
-            Your Affinity Scores
-          </h3>
-          <div className="space-y-2">
-            {Object.entries(scores)
-              .sort(([, a], [, b]) => b - a)
-              .map(([masterName, score]) => (
-                <div key={masterName} className="flex items-center gap-3">
-                  <span className="text-sm text-primary/70 w-28 text-right">
-                    {masterName}
-                  </span>
-                  <div className="flex-1 bg-primary/10 rounded-full h-2 overflow-hidden">
-                    <div
-                      className="bg-accent h-full rounded-full transition-all duration-500"
-                      style={{ width: `${(score / 20) * 100}%` }}
-                    />
-                  </div>
-                  <span className="text-sm font-semibold text-primary w-8">
-                    {score}
-                  </span>
-                </div>
-              ))}
-          </div>
-        </div>
-
         <button
           onClick={onRestart}
           className="px-8 py-3 bg-primary text-white rounded-lg
