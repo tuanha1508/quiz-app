@@ -6,6 +6,7 @@ import { ChatMessage } from '@/types/chat';
 import { QUESTIONS } from '@/data/questions';
 import { calculateQuizResult } from '@/lib/quiz-calculator';
 import { matchUserResponseToAnswer } from '@/lib/ai-matcher';
+import { analyzeUserResponse } from '@/lib/response-analyzer';
 import ResultCard from './ResultCard';
 
 type ChatState = 'intro' | 'chat' | 'result';
@@ -46,6 +47,10 @@ export default function ChatBot() {
     await new Promise((resolve) => setTimeout(resolve, delay));
     setIsTyping(false);
     callback();
+    // Focus input after bot finishes responding
+    setTimeout(() => {
+      inputRef.current?.focus();
+    }, 100);
   };
 
   const handleStart = () => {
@@ -116,7 +121,24 @@ export default function ChatBot() {
     setIsProcessing(true);
 
     try {
-      // Use AI to match the user's response to the best answer
+      // First, analyze if the response is relevant to the question
+      const analysis = await analyzeUserResponse(
+        inputText,
+        currentQuestion.question
+      );
+
+      if (!analysis.isRelevant) {
+        // User gave an unclear or off-topic response
+        addMessage(inputText, 'user');
+
+        await simulateTyping(() => {
+          addMessage(analysis.clarificationMessage, 'bot');
+          setIsProcessing(false);
+        }, 800);
+        return;
+      }
+
+      // Response is relevant, proceed with matching and processing
       const matchedAnswer = await matchUserResponseToAnswer(
         inputText,
         currentQuestion.answers
