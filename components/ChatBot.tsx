@@ -8,8 +8,9 @@ import { calculateQuizResult } from '@/lib/quiz-calculator';
 import { matchUserResponseToAnswer } from '@/lib/ai-matcher';
 import { analyzeUserResponse } from '@/lib/response-analyzer';
 import ResultCard from './ResultCard';
+import PersonalityChat from './PersonalityChat';
 
-type ChatState = 'intro' | 'chat' | 'result';
+type ChatState = 'intro' | 'chat' | 'result' | 'personality-chat';
 
 export default function ChatBot() {
   const [state, setState] = useState<ChatState>('chat');
@@ -197,8 +198,20 @@ export default function ChatBot() {
     }, 100);
   };
 
+  const handleChatWithPersonality = () => {
+    setState('personality-chat');
+  };
+
+  const handleBackFromChat = () => {
+    setState('result');
+  };
+
+  if (state === 'personality-chat' && result) {
+    return <PersonalityChat master={result.master} onBack={handleBackFromChat} />;
+  }
+
   if (state === 'result' && result) {
-    return <ResultCard result={result} onRestart={handleRestart} />;
+    return <ResultCard result={result} onRestart={handleRestart} onChatClick={handleChatWithPersonality} />;
   }
 
   // Chat UI

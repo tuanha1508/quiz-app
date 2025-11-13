@@ -77,38 +77,5 @@ export const QUESTIONS: Question[] = [
       { text: 'Knowing the future but being unable to change it.', scores: { Machination: 0, Monomania: 0, Legilimency: 0, Prescience: 1, Sangfroid: 0 } },
       { text: 'Feeling again.', scores: { Machination: 0, Monomania: 0, Legilimency: 0, Prescience: 0, Sangfroid: 1 } }
     ]
-  },
-  {
-    id: 8,
-    question: 'Which statement defines you?',
-    answers: [
-      { text: 'I turn chaos into calculated advantage.', scores: { Machination: 1, Monomania: 0, Legilimency: 0, Prescience: 0, Sangfroid: 0 } },
-      { text: 'I will burn everything to achieve my vision.', scores: { Machination: 0, Monomania: 1, Legilimency: 0, Prescience: 0, Sangfroid: 0 } },
-      { text: 'I see what haunts you before you speak.', scores: { Machination: 0, Monomania: 0, Legilimency: 1, Prescience: 0, Sangfroid: 0 } },
-      { text: 'I have already lived this moment.', scores: { Machination: 0, Monomania: 0, Legilimency: 0, Prescience: 1, Sangfroid: 0 } },
-      { text: 'I am unmoved by anything.', scores: { Machination: 0, Monomania: 0, Legilimency: 0, Prescience: 0, Sangfroid: 1 } }
-    ]
-  },
-  {
-    id: 9,
-    question: 'Your ultimate goal is to…',
-    answers: [
-      { text: 'Master every variable and turn luck into strategy.', scores: { Machination: 1, Monomania: 0, Legilimency: 0, Prescience: 0, Sangfroid: 0 } },
-      { text: 'Achieve what others call impossible.', scores: { Machination: 0, Monomania: 1, Legilimency: 0, Prescience: 0, Sangfroid: 0 } },
-      { text: 'Understand and control every mind around me.', scores: { Machination: 0, Monomania: 0, Legilimency: 1, Prescience: 0, Sangfroid: 0 } },
-      { text: 'See and shape all possible futures.', scores: { Machination: 0, Monomania: 0, Legilimency: 0, Prescience: 1, Sangfroid: 0 } },
-      { text: 'Become untouchable — emotionally and physically.', scores: { Machination: 0, Monomania: 0, Legilimency: 0, Prescience: 0, Sangfroid: 1 } }
-    ]
-  },
-  {
-    id: 10,
-    question: 'Which quote resonates with your soul?',
-    answers: [
-      { text: 'Even fate can be bluffed if you know how to deal.', scores: { Machination: 1, Monomania: 0, Legilimency: 0, Prescience: 0, Sangfroid: 0 } },
-      { text: 'The fire in my chest doesn\'t ask for permission — it devours.', scores: { Machination: 0, Monomania: 1, Legilimency: 0, Prescience: 0, Sangfroid: 0 } },
-      { text: 'Every thought has a thread — and I pull the right ones.', scores: { Machination: 0, Monomania: 0, Legilimency: 1, Prescience: 0, Sangfroid: 0 } },
-      { text: 'Every card I play has already been played.', scores: { Machination: 0, Monomania: 0, Legilimency: 0, Prescience: 1, Sangfroid: 0 } },
-      { text: 'When they break, I remain — calm, unshaken, eternal.', scores: { Machination: 0, Monomania: 0, Legilimency: 0, Prescience: 0, Sangfroid: 1 } }
-    ]
   }
 ];

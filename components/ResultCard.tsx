@@ -4,9 +4,10 @@ import { MasterType } from '@/types/quiz';
 interface ResultCardProps {
   result: QuizResult;
   onRestart: () => void;
+  onChatClick?: () => void;
 }
 
-export default function ResultCard({ result, onRestart }: ResultCardProps) {
+export default function ResultCard({ result, onRestart, onChatClick }: ResultCardProps) {
   const { master, scores } = result;
 
   // Get all personality types in order with their scores
@@ -96,10 +97,7 @@ export default function ResultCard({ result, onRestart }: ResultCardProps) {
           {/* NEW: Action Buttons */}
           <div className="w-full flex flex-row gap-2 sm:gap-3 mt-1 sm:mt-4 justify-center">
             <button
-              onClick={() => {
-                // TODO: Implement chat functionality
-                console.log('Chat with', master.name);
-              }}
+              onClick={onChatClick}
               className="flex-1 max-w-[160px] sm:max-w-none sm:flex-none px-3 sm:px-6 py-2 rounded-xl sm:rounded-2xl font-medium text-[11px] sm:text-[13px] text-[#EFEACD] transition-all hover:opacity-90 hover:cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 bg-[#9C0512] font-[family-name:var(--font-poppins)]"
             >
               Chat with {master.name}
