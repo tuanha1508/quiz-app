@@ -224,11 +224,16 @@ export default function ChatBot() {
             }`}
           >
             <div
-              className={`max-w-[80%] rounded-lg p-3 ${
+              className={`max-w-[80%] p-3 ${
                 message.role === 'user'
-                  ? 'bg-[#9C0512]/30 text-white'
-                  : 'bg-white/10 text-white'
+                  ? 'bg-[#9C0512] text-white border border-[#9C0512]/50 rounded-tl-lg rounded-tr rounded-bl-lg rounded-br-lg'
+                  : 'bg-white/10 text-white rounded-lg'
               }`}
+              style={
+                message.role === 'user'
+                  ? { boxShadow: '0 0 20px 0 rgba(156, 5, 18, 0.3)' }
+                  : undefined
+              }
             >
               <p className="text-sm md:text-base break-words whitespace-pre-wrap">{message.text}</p>
             </div>
@@ -267,8 +272,8 @@ export default function ChatBot() {
               <button
                 key={idx}
                 onClick={() => handleSuggestionClick(answer)}
-                className="px-3 py-2 bg-white border border-gray-300 rounded-full text-sm
-                         hover:bg-[#9C0512]/30 hover:text-white hover:border-[#9C0512]/30
+                className="px-3 py-2 bg-[#9C0512]/35 border border-[#9C0512]/50 rounded-full text-sm text-white
+                         hover:bg-[#9C0512] hover:border-[#9C0512]
                          transition-colors text-left break-words whitespace-normal max-w-full cursor-pointer"
                 disabled={isProcessing}
               >
