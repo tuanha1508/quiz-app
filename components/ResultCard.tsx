@@ -14,12 +14,12 @@ export default function ResultCard({ result, onRestart }: ResultCardProps) {
   const maxScore = 7; // Maximum possible score per personality
 
   return (
-    <div className="w-full h-full flex items-start sm:items-center justify-center px-4 sm:px-6 pt-20 sm:pt-6 pb-24 sm:pb-6">
+    <div className="fixed sm:static inset-0 sm:w-full sm:h-full flex items-start sm:items-center justify-center px-0 sm:px-6 pt-0 sm:pt-6 pb-0 sm:pb-6 z-50">
       <div
-        className="w-full max-w-2xl max-h-full overflow-y-auto rounded-lg sm:rounded-2xl bg-gradient-to-b from-[#EFEACD] to-[#EDD794] scrollbar-hide"
+        className="w-full max-w-2xl h-full sm:max-h-full overflow-y-auto rounded-none sm:rounded-2xl bg-gradient-to-b from-[#EFEACD] to-[#EDD794] scrollbar-hide"
       >
         {/* Scrollable content container */}
-        <div className="flex flex-col items-center p-3 sm:p-6 md:p-8 gap-3 sm:gap-6 md:gap-8">
+        <div className="flex flex-col items-center px-4 py-6 sm:p-6 md:p-8 gap-4 sm:gap-6 md:gap-8 min-h-full">
 
           {/* ORIGINAL Personality Section */}
           <div className="w-full flex flex-col items-center gap-1.5 sm:gap-2 pb-3 sm:pb-6 border-b border-[#9C0512]/20">
