@@ -27,9 +27,6 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Visa Quiz",
   description: "Discover which Elite Council Boss you truly embody",
-  icons: {
-    icon: "/logo.png",
-  },
 };
 
 export default function RootLayout({
