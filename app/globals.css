@@ -16,27 +16,38 @@
   --font-mono: var(--font-geist-mono);
 }
 
-html, body {
+html {
   height: 100%;
   width: 100%;
-  overflow: hidden;
   margin: 0;
   padding: 0;
-  position: fixed;
-  overscroll-behavior: none;
 }
 
 body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  overscroll-behavior: none;
   background: var(--background) url('/background.png') no-repeat center center;
   background-size: cover;
   background-attachment: fixed;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  position: relative;
 }
 
 @media (max-width: 768px) {
   body {
     background-attachment: scroll;
+    position: relative;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+
+  html {
+    height: -webkit-fill-available;
   }
 }
 

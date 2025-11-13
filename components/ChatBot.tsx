@@ -205,9 +205,9 @@ export default function ChatBot() {
   const currentQuestion = QUESTIONS[currentQuestionIndex];
 
   return (
-    <div className="w-full max-w-3xl mx-auto flex flex-col h-[80vh] bg-[#0E0000]/50 border border-[#9C0512]/30 rounded-2xl shadow-[0_0_50px_0_rgba(156,5,18,0.15)]">
+    <div className="w-full max-w-3xl mx-auto flex flex-col h-[80vh] bg-[#0E0000]/50 backdrop-blur-md border border-[#9C0512]/30 rounded-2xl shadow-[0_0_50px_0_rgba(156,5,18,0.15)]">
       {/* Header */}
-      <div className="bg-[#DC2639]/35 text-white p-4 rounded-t-2xl">
+      <div className="bg-[#DC2639]/35 backdrop-blur-sm text-white p-4 rounded-t-2xl">
         <h2 className="text-xl font-bold text-[#EDD794]">Which Elite Council Boss Are You?</h2>
         <p className="text-sm text-white/80">
           Question {currentQuestionIndex + 1} of {QUESTIONS.length}
@@ -215,7 +215,7 @@ export default function ChatBot() {
       </div>
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto bg-[#0E0000]/50 p-4 space-y-4 scrollbar-hide">
+      <div className="flex-1 overflow-y-auto bg-[#0E0000]/30 backdrop-blur-sm p-4 space-y-4 scrollbar-hide">
         {messages.map((message) => (
           <div
             key={message.id}
@@ -263,7 +263,7 @@ export default function ChatBot() {
 
       {/* Suggestions */}
       {!isTyping && !isProcessing && showSuggestions && (
-        <div className="bg-[#0E0000]/50 p-4 space-y-2 max-h-48 overflow-y-auto scrollbar-hide">
+        <div className="bg-[#0E0000]/30 backdrop-blur-sm p-4 space-y-2 max-h-48 overflow-y-auto scrollbar-hide">
           <p className="text-xs text-gray-500 mb-2">
             Quick suggestions (or type your own below):
           </p>
@@ -285,7 +285,7 @@ export default function ChatBot() {
       )}
 
       {/* Input */}
-      <form onSubmit={handleTextSubmit} className="bg-white/5 p-4 rounded-b-2xl">
+      <form onSubmit={handleTextSubmit} className="bg-white/5 backdrop-blur-sm p-4 rounded-b-2xl">
         <div className="flex gap-2">
           <input
             ref={inputRef}
