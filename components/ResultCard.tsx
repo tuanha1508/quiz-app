@@ -94,19 +94,19 @@ export default function ResultCard({ result, onRestart }: ResultCardProps) {
           </div>
 
           {/* NEW: Action Buttons */}
-          <div className="w-full flex gap-4 mt-4">
+          <div className="w-full flex gap-3 mt-4 justify-center">
             <button
               onClick={() => {
                 // TODO: Implement chat functionality
                 console.log('Chat with', master.name);
               }}
-              className="flex-1 py-3 rounded-2xl font-medium text-[14px] text-[#EFEACD] transition-all hover:opacity-90 hover:cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 bg-[#9C0512] font-[family-name:var(--font-poppins)]"
+              className="px-6 py-2 rounded-2xl font-medium text-[13px] text-[#EFEACD] transition-all hover:opacity-90 hover:cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 bg-[#9C0512] font-[family-name:var(--font-poppins)]"
             >
               Chat with {master.name}
             </button>
             <button
               onClick={onRestart}
-              className="flex-1 py-3 rounded-2xl font-medium text-[14px] transition-all hover:opacity-90 hover:cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white/20 border border-[#9C0512]/20 text-[#64080C] font-[family-name:var(--font-poppins)]"
+              className="px-6 py-2 rounded-2xl font-medium text-[13px] transition-all hover:opacity-90 hover:cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white/20 border border-[#9C0512]/20 text-[#64080C] font-[family-name:var(--font-poppins)]"
             >
               Retake Assessment
             </button>

@@ -226,8 +226,8 @@ export default function ChatBot() {
             <div
               className={`max-w-[80%] p-3 ${
                 message.role === 'user'
-                  ? 'bg-[#9C0512] text-white border border-[#9C0512]/50 rounded-tl-lg rounded-tr rounded-bl-lg rounded-br-lg'
-                  : 'bg-white/10 text-white rounded-lg'
+                  ? 'bg-[#9C0512] text-white border border-[#9C0512]/50 rounded-2xl rounded-tr-[8px]'
+                  : 'bg-white/10 text-white rounded-2xl'
               }`}
               style={
                 message.role === 'user'
@@ -295,7 +295,7 @@ export default function ChatBot() {
             placeholder="Type your response or choose a suggestion above..."
             className="flex-1 px-4 py-2 bg-white/10 border border-white/20 rounded-[14px] text-white placeholder:text-white/50
                      focus:outline-none
-                     disabled:bg-gray-100"
+                     disabled:bg-white/10 disabled:opacity-60"
             disabled={isTyping || isProcessing}
           />
           <button
