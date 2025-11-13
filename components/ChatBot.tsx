@@ -221,17 +221,17 @@ export default function ChatBot() {
   const currentQuestion = QUESTIONS[currentQuestionIndex];
 
   return (
-    <div className="w-full max-w-3xl mx-auto flex flex-col h-[80vh]">
+    <div className="w-full max-w-3xl mx-auto flex flex-col h-[80vh] bg-[#0E0000]/50 border border-[#9C0512]/30 rounded-2xl shadow-[0_0_50px_0_rgba(156,5,18,0.15)]">
       {/* Header */}
-      <div className="bg-primary text-white p-4 rounded-t-lg shadow-lg">
-        <h2 className="text-xl font-bold">Academy Master Quiz</h2>
+      <div className="bg-[#DC2639]/35 text-white p-4 rounded-t-2xl">
+        <h2 className="text-xl font-bold text-[#EDD794]">Which Elite Council Boss Are You?</h2>
         <p className="text-sm text-white/80">
           Question {currentQuestionIndex + 1} of {QUESTIONS.length}
         </p>
       </div>
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto bg-white p-4 space-y-4 scrollbar-hide">
+      <div className="flex-1 overflow-y-auto bg-[#0E0000]/50 p-4 space-y-4 scrollbar-hide">
         {messages.map((message) => (
           <div
             key={message.id}
@@ -242,8 +242,8 @@ export default function ChatBot() {
             <div
               className={`max-w-[80%] rounded-lg p-3 ${
                 message.role === 'user'
-                  ? 'bg-primary text-white'
-                  : 'bg-gray-100 text-gray-800'
+                  ? 'bg-[#9C0512]/30 text-white'
+                  : 'bg-white/10 text-white'
               }`}
             >
               <p className="text-sm md:text-base break-words whitespace-pre-wrap">{message.text}</p>
@@ -253,7 +253,7 @@ export default function ChatBot() {
 
         {isTyping && (
           <div className="flex justify-start">
-            <div className="bg-gray-100 rounded-lg p-3">
+            <div className="bg-white/10 rounded-lg p-3">
               <div className="flex space-x-2">
                 <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
                 <div
@@ -274,7 +274,7 @@ export default function ChatBot() {
 
       {/* Suggestions */}
       {!isTyping && !isProcessing && showSuggestions && (
-        <div className="bg-gray-50 p-4 space-y-2 max-h-48 overflow-y-auto border-t scrollbar-hide">
+        <div className="bg-[#0E0000]/50 p-4 space-y-2 max-h-48 overflow-y-auto scrollbar-hide">
           <p className="text-xs text-gray-500 mb-2">
             Quick suggestions (or type your own below):
           </p>
@@ -284,8 +284,8 @@ export default function ChatBot() {
                 key={idx}
                 onClick={() => handleSuggestionClick(answer)}
                 className="px-3 py-2 bg-white border border-gray-300 rounded-full text-sm
-                         hover:bg-primary hover:text-white hover:border-primary
-                         transition-colors text-left break-words whitespace-normal max-w-full"
+                         hover:bg-[#9C0512]/30 hover:text-white hover:border-[#9C0512]/30
+                         transition-colors text-left break-words whitespace-normal max-w-full cursor-pointer"
                 disabled={isProcessing}
               >
                 {answer.text}
@@ -296,7 +296,7 @@ export default function ChatBot() {
       )}
 
       {/* Input */}
-      <form onSubmit={handleTextSubmit} className="bg-white p-4 border-t">
+      <form onSubmit={handleTextSubmit} className="bg-white/5 p-4 rounded-b-2xl">
         <div className="flex gap-2">
           <input
             ref={inputRef}
@@ -304,17 +304,16 @@ export default function ChatBot() {
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
             placeholder="Type your response or choose a suggestion above..."
-            className="flex-1 px-4 py-2 border border-gray-300 rounded-lg
-                     focus:outline-none focus:ring-2 focus:ring-primary
+            className="flex-1 px-4 py-2 bg-white/10 border border-white/20 rounded-[14px] text-white placeholder:text-white/50
+                     focus:outline-none
                      disabled:bg-gray-100"
             disabled={isTyping || isProcessing}
           />
           <button
             type="submit"
             disabled={!userInput.trim() || isTyping || isProcessing}
-            className="px-6 py-2 bg-primary text-white rounded-lg font-semibold
-                     hover:bg-primary/90 transition-colors
-                     disabled:bg-gray-300 disabled:cursor-not-allowed"
+            className="px-6 py-2 bg-white/10 text-white rounded-[14px] font-semibold
+                     hover:bg-white/20 transition-colors"
           >
             Send
           </button>
