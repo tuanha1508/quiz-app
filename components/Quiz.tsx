@@ -47,21 +47,23 @@ export default function Quiz() {
       <div className="w-full max-w-2xl mx-auto text-center">
         <div className="mb-8">
           <h1 className="text-4xl md:text-6xl font-bold text-primary mb-4">
-            Which Master of the Academy Are You?
+            Which Elite Council Boss Are You?
           </h1>
-          <p className="text-lg text-primary/70 mb-8">
-            Discover your true nature through 10 revealing questions.
-            Each choice shapes your destiny within the Academy.
+          <p className="text-lg text-primary/70 mb-6 italic">
+            "Power isn't given. It's taken — through the deck, through the mind, through the will to dominate."
+          </p>
+          <p className="text-base text-primary/60 mb-8">
+            Discover your archetype through 10 questions. Each answer reveals your true nature within the Council.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 text-left">
           {[
-            { name: 'Prescience', trait: 'Calculated & Visionary', emoji: '🔮' },
-            { name: 'Legilimency', trait: 'Manipulative & Intuitive', emoji: '🧠' },
-            { name: 'Machination', trait: 'Devious & Creative', emoji: '⚙️' },
-            { name: 'Equanimity', trait: 'Stoic & Detached', emoji: '🌊' },
-            { name: 'Monomania', trait: 'Obsessed & Relentless', emoji: '🔥' }
+            { name: 'Machination', trait: 'Strategy / Luck / Calculation', emoji: '🎲' },
+            { name: 'Monomania', trait: 'Obsession / Ambition / Desire', emoji: '🔥' },
+            { name: 'Legilimency', trait: 'Mind / Manipulation / Perception', emoji: '🧠' },
+            { name: 'Prescience', trait: 'Fate / Foresight / Control', emoji: '🔮' },
+            { name: 'Sangfroid', trait: 'Composure / Domination / Mastery', emoji: '❄️' }
           ].map((master) => (
             <div
               key={master.name}

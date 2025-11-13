@@ -3,11 +3,11 @@ import { MASTERS, MASTER_ORDER } from '@/data/masters';
 
 export function calculateQuizResult(answers: Answer[]): QuizResult {
   const scores: Record<MasterType, number> = {
-    Prescience: 0,
-    Legilimency: 0,
     Machination: 0,
-    Equanimity: 0,
-    Monomania: 0
+    Monomania: 0,
+    Legilimency: 0,
+    Prescience: 0,
+    Sangfroid: 0
   };
 
   // Sum all scores from answers
@@ -18,12 +18,14 @@ export function calculateQuizResult(answers: Answer[]): QuizResult {
   });
 
   // Find the master with highest score
-  let winningMaster: MasterType = 'Prescience';
-  let highestScore = scores.Prescience;
+  // Tie-breaker priority: Sangfroid > Prescience > Legilimency > Monomania > Machination
+  let winningMaster: MasterType = 'Sangfroid';
+  let highestScore = -1;
 
-  // Check remaining masters in order of dominance
-  MASTER_ORDER.forEach(masterType => {
-    if (scores[masterType] > highestScore) {
+  // Check masters in reverse order of priority (lowest priority first)
+  // This ensures that if there's a tie, the higher priority master wins
+  [...MASTER_ORDER].reverse().forEach(masterType => {
+    if (scores[masterType] >= highestScore) {
       highestScore = scores[masterType];
       winningMaster = masterType;
     }

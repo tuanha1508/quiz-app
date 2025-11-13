@@ -3,112 +3,112 @@ import { Question } from '@/types/quiz';
 export const QUESTIONS: Question[] = [
   {
     id: 1,
-    question: 'How do you approach a new challenge?',
+    question: 'When you face someone stronger than you, your instinct is to…',
     answers: [
-      { text: 'I analyze every angle before making my move', scores: { Prescience: 2, Legilimency: 0, Machination: 1, Equanimity: 1, Monomania: 0 } },
-      { text: 'I read the room and use others\' reactions to my advantage', scores: { Prescience: 0, Legilimency: 2, Machination: 1, Equanimity: 0, Monomania: 0 } },
-      { text: 'I jump in headfirst and adapt as I go', scores: { Prescience: 0, Legilimency: 0, Machination: 2, Equanimity: 0, Monomania: 1 } },
-      { text: 'I stay calm — emotions cloud judgment', scores: { Prescience: 1, Legilimency: 0, Machination: 0, Equanimity: 2, Monomania: 0 } },
-      { text: 'I throw myself into it completely, no matter the cost', scores: { Prescience: 0, Legilimency: 0, Machination: 0, Equanimity: 0, Monomania: 2 } }
+      { text: 'Observe and analyze every move to find their weakness.', scores: { Machination: 1, Monomania: 0, Legilimency: 0, Prescience: 0, Sangfroid: 0 } },
+      { text: 'Refuse to lose — burn yourself to ashes if you must.', scores: { Machination: 0, Monomania: 1, Legilimency: 0, Prescience: 0, Sangfroid: 0 } },
+      { text: 'Twist their thoughts until they start doubting themselves.', scores: { Machination: 0, Monomania: 0, Legilimency: 1, Prescience: 0, Sangfroid: 0 } },
+      { text: 'Wait for the exact moment to strike.', scores: { Machination: 0, Monomania: 0, Legilimency: 0, Prescience: 1, Sangfroid: 0 } },
+      { text: 'Keep a cold face — victory or defeat, they still fear you.', scores: { Machination: 0, Monomania: 0, Legilimency: 0, Prescience: 0, Sangfroid: 1 } }
     ]
   },
   {
     id: 2,
-    question: 'What drives you the most?',
+    question: 'What makes you feel most alive?',
     answers: [
-      { text: 'Control over outcome', scores: { Prescience: 2, Legilimency: 0, Machination: 1, Equanimity: 1, Monomania: 0 } },
-      { text: 'Understanding others\' motives', scores: { Prescience: 0, Legilimency: 2, Machination: 1, Equanimity: 0, Monomania: 0 } },
-      { text: 'The thrill of outsmarting chaos', scores: { Prescience: 0, Legilimency: 0, Machination: 2, Equanimity: 0, Monomania: 1 } },
-      { text: 'Inner peace and detachment', scores: { Prescience: 0, Legilimency: 0, Machination: 0, Equanimity: 2, Monomania: 0 } },
-      { text: 'The hunger to win and prove myself', scores: { Prescience: 0, Legilimency: 0, Machination: 1, Equanimity: 0, Monomania: 2 } }
+      { text: 'When my plan plays out flawlessly.', scores: { Machination: 1, Monomania: 0, Legilimency: 0, Prescience: 0, Sangfroid: 0 } },
+      { text: 'When I win what no one believed I could have.', scores: { Machination: 0, Monomania: 1, Legilimency: 0, Prescience: 0, Sangfroid: 0 } },
+      { text: 'When others dance exactly how I make them.', scores: { Machination: 0, Monomania: 0, Legilimency: 1, Prescience: 0, Sangfroid: 0 } },
+      { text: 'When I walk into a future I\'ve already foreseen.', scores: { Machination: 0, Monomania: 0, Legilimency: 0, Prescience: 1, Sangfroid: 0 } },
+      { text: 'When I\'m in full control — of myself and everyone else.', scores: { Machination: 0, Monomania: 0, Legilimency: 0, Prescience: 0, Sangfroid: 1 } }
     ]
   },
   {
     id: 3,
-    question: 'In a team, your role usually is:',
+    question: 'If power were a blade, how would you use it?',
     answers: [
-      { text: 'The planner who sets every move', scores: { Prescience: 2, Legilimency: 0, Machination: 1, Equanimity: 0, Monomania: 0 } },
-      { text: 'The one who influences everyone subtly', scores: { Prescience: 0, Legilimency: 2, Machination: 0, Equanimity: 0, Monomania: 0 } },
-      { text: 'The mastermind connecting all the chaos', scores: { Prescience: 1, Legilimency: 1, Machination: 2, Equanimity: 0, Monomania: 0 } },
-      { text: 'The calm stabilizer keeping emotions in check', scores: { Prescience: 0, Legilimency: 0, Machination: 0, Equanimity: 2, Monomania: 0 } },
-      { text: 'The motivator who never gives up', scores: { Prescience: 0, Legilimency: 0, Machination: 0, Equanimity: 0, Monomania: 2 } }
+      { text: 'Play chess with destiny.', scores: { Machination: 1, Monomania: 0, Legilimency: 0, Prescience: 0, Sangfroid: 0 } },
+      { text: 'Cut down anyone in my way.', scores: { Machination: 0, Monomania: 1, Legilimency: 0, Prescience: 0, Sangfroid: 0 } },
+      { text: 'Strike without leaving a trace.', scores: { Machination: 0, Monomania: 0, Legilimency: 1, Prescience: 0, Sangfroid: 0 } },
+      { text: 'Keep it sheathed until I\'m certain of victory.', scores: { Machination: 0, Monomania: 0, Legilimency: 0, Prescience: 1, Sangfroid: 0 } },
+      { text: 'Drive it into the table and silence the room.', scores: { Machination: 0, Monomania: 0, Legilimency: 0, Prescience: 0, Sangfroid: 1 } }
     ]
   },
   {
     id: 4,
-    question: 'Your greatest weakness is:',
+    question: 'In a team, you are usually the one who…',
     answers: [
-      { text: 'Overthinking', scores: { Prescience: 2, Legilimency: 0, Machination: 0, Equanimity: 0, Monomania: 0 } },
-      { text: 'Manipulating people too much', scores: { Prescience: 0, Legilimency: 2, Machination: 0, Equanimity: 0, Monomania: 0 } },
-      { text: 'Losing control in the game I designed', scores: { Prescience: 0, Legilimency: 0, Machination: 2, Equanimity: 0, Monomania: 1 } },
-      { text: 'Feeling detached from life', scores: { Prescience: 0, Legilimency: 0, Machination: 0, Equanimity: 2, Monomania: 0 } },
-      { text: 'Pushing myself past the breaking point', scores: { Prescience: 0, Legilimency: 0, Machination: 0, Equanimity: 0, Monomania: 2 } }
+      { text: 'Stays behind the scenes, calculating every move.', scores: { Machination: 1, Monomania: 0, Legilimency: 0, Prescience: 0, Sangfroid: 0 } },
+      { text: 'Pushes everyone forward — even if it hurts.', scores: { Machination: 0, Monomania: 1, Legilimency: 0, Prescience: 0, Sangfroid: 0 } },
+      { text: 'Reads minds and plays people against each other.', scores: { Machination: 0, Monomania: 0, Legilimency: 1, Prescience: 0, Sangfroid: 0 } },
+      { text: 'Sees the path before anyone else.', scores: { Machination: 0, Monomania: 0, Legilimency: 0, Prescience: 1, Sangfroid: 0 } },
+      { text: 'Commands with silence — everyone follows instinctively.', scores: { Machination: 0, Monomania: 0, Legilimency: 0, Prescience: 0, Sangfroid: 1 } }
     ]
   },
   {
     id: 5,
-    question: 'What would you do if you lost everything?',
+    question: 'When everything collapses, what do you do?',
     answers: [
-      { text: 'Rebuild slowly — I\'ve already calculated the path', scores: { Prescience: 2, Legilimency: 0, Machination: 1, Equanimity: 0, Monomania: 0 } },
-      { text: 'Make them believe I still have control', scores: { Prescience: 0, Legilimency: 2, Machination: 1, Equanimity: 0, Monomania: 0 } },
-      { text: 'Twist reality until it bends in my favor', scores: { Prescience: 0, Legilimency: 0, Machination: 2, Equanimity: 0, Monomania: 1 } },
-      { text: 'Accept it. Everything ends eventually', scores: { Prescience: 0, Legilimency: 0, Machination: 0, Equanimity: 2, Monomania: 0 } },
-      { text: 'Keep fighting. I\'d rather die trying', scores: { Prescience: 0, Legilimency: 0, Machination: 0, Equanimity: 0, Monomania: 2 } }
+      { text: 'Step back and turn the ruins into a new strategy.', scores: { Machination: 1, Monomania: 0, Legilimency: 0, Prescience: 0, Sangfroid: 0 } },
+      { text: 'Clench my fists and rebuild twice as hard.', scores: { Machination: 0, Monomania: 1, Legilimency: 0, Prescience: 0, Sangfroid: 0 } },
+      { text: 'Manipulate from the shadows until I regain control.', scores: { Machination: 0, Monomania: 0, Legilimency: 1, Prescience: 0, Sangfroid: 0 } },
+      { text: 'Accept the fall — knowing it\'s part of a larger cycle.', scores: { Machination: 0, Monomania: 0, Legilimency: 0, Prescience: 1, Sangfroid: 0 } },
+      { text: 'Smile. Nothing can touch me anymore.', scores: { Machination: 0, Monomania: 0, Legilimency: 0, Prescience: 0, Sangfroid: 1 } }
     ]
   },
   {
     id: 6,
-    question: 'Which phrase resonates most with you?',
+    question: 'If you could rewrite one rule of the world, it would be…',
     answers: [
-      { text: 'Everything is a move, and I play the long game.', scores: { Prescience: 2, Legilimency: 0, Machination: 1, Equanimity: 0, Monomania: 0 } },
-      { text: 'Knowledge of others is the sharpest weapon.', scores: { Prescience: 0, Legilimency: 2, Machination: 1, Equanimity: 0, Monomania: 0 } },
-      { text: 'Reality is what I decide it to be.', scores: { Prescience: 0, Legilimency: 0, Machination: 2, Equanimity: 0, Monomania: 1 } },
-      { text: 'Peace lies in stillness, not victory.', scores: { Prescience: 0, Legilimency: 0, Machination: 0, Equanimity: 2, Monomania: 0 } },
-      { text: 'Victory demands sacrifice.', scores: { Prescience: 0, Legilimency: 0, Machination: 0, Equanimity: 0, Monomania: 2 } }
+      { text: 'Luck favors the one who calculates it best.', scores: { Machination: 1, Monomania: 0, Legilimency: 0, Prescience: 0, Sangfroid: 0 } },
+      { text: 'Those who dream the biggest, live the longest.', scores: { Machination: 0, Monomania: 1, Legilimency: 0, Prescience: 0, Sangfroid: 0 } },
+      { text: 'No secret stays buried forever.', scores: { Machination: 0, Monomania: 0, Legilimency: 1, Prescience: 0, Sangfroid: 0 } },
+      { text: 'All futures can be rewritten.', scores: { Machination: 0, Monomania: 0, Legilimency: 0, Prescience: 1, Sangfroid: 0 } },
+      { text: 'Emotions are for the weak.', scores: { Machination: 0, Monomania: 0, Legilimency: 0, Prescience: 0, Sangfroid: 1 } }
     ]
   },
   {
     id: 7,
-    question: 'When facing betrayal, you...',
+    question: 'What do you fear the most?',
     answers: [
-      { text: 'Already anticipated it.', scores: { Prescience: 2, Legilimency: 0, Machination: 0, Equanimity: 0, Monomania: 0 } },
-      { text: 'Twist their guilt into your weapon.', scores: { Prescience: 0, Legilimency: 2, Machination: 1, Equanimity: 0, Monomania: 0 } },
-      { text: 'Let the chaos consume them.', scores: { Prescience: 0, Legilimency: 0, Machination: 2, Equanimity: 0, Monomania: 1 } },
-      { text: 'Feel nothing. Everything passes.', scores: { Prescience: 0, Legilimency: 0, Machination: 0, Equanimity: 2, Monomania: 0 } },
-      { text: 'Channel the rage into pure fuel.', scores: { Prescience: 0, Legilimency: 0, Machination: 0, Equanimity: 0, Monomania: 2 } }
+      { text: 'Losing control of the plan.', scores: { Machination: 1, Monomania: 0, Legilimency: 0, Prescience: 0, Sangfroid: 0 } },
+      { text: 'Not being strong enough to get what I want.', scores: { Machination: 0, Monomania: 1, Legilimency: 0, Prescience: 0, Sangfroid: 0 } },
+      { text: 'Being seen through.', scores: { Machination: 0, Monomania: 0, Legilimency: 1, Prescience: 0, Sangfroid: 0 } },
+      { text: 'Knowing the future but being unable to change it.', scores: { Machination: 0, Monomania: 0, Legilimency: 0, Prescience: 1, Sangfroid: 0 } },
+      { text: 'Feeling again.', scores: { Machination: 0, Monomania: 0, Legilimency: 0, Prescience: 0, Sangfroid: 1 } }
     ]
   },
   {
     id: 8,
-    question: 'Pick your signature move:',
+    question: 'Which statement defines you?',
     answers: [
-      { text: 'Strategic foresight', scores: { Prescience: 2, Legilimency: 0, Machination: 0, Equanimity: 0, Monomania: 0 } },
-      { text: 'Psychological manipulation', scores: { Prescience: 0, Legilimency: 2, Machination: 0, Equanimity: 0, Monomania: 0 } },
-      { text: 'Game-altering deception', scores: { Prescience: 0, Legilimency: 0, Machination: 2, Equanimity: 0, Monomania: 1 } },
-      { text: 'Complete emotional detachment', scores: { Prescience: 0, Legilimency: 0, Machination: 0, Equanimity: 2, Monomania: 0 } },
-      { text: 'Obsessive pursuit of perfection', scores: { Prescience: 0, Legilimency: 0, Machination: 0, Equanimity: 0, Monomania: 2 } }
+      { text: 'I turn chaos into calculated advantage.', scores: { Machination: 1, Monomania: 0, Legilimency: 0, Prescience: 0, Sangfroid: 0 } },
+      { text: 'I will burn everything to achieve my vision.', scores: { Machination: 0, Monomania: 1, Legilimency: 0, Prescience: 0, Sangfroid: 0 } },
+      { text: 'I see what haunts you before you speak.', scores: { Machination: 0, Monomania: 0, Legilimency: 1, Prescience: 0, Sangfroid: 0 } },
+      { text: 'I have already lived this moment.', scores: { Machination: 0, Monomania: 0, Legilimency: 0, Prescience: 1, Sangfroid: 0 } },
+      { text: 'I am unmoved by anything.', scores: { Machination: 0, Monomania: 0, Legilimency: 0, Prescience: 0, Sangfroid: 1 } }
     ]
   },
   {
     id: 9,
-    question: 'How do you see power?',
+    question: 'Your ultimate goal is to…',
     answers: [
-      { text: 'As the ability to control outcomes', scores: { Prescience: 2, Legilimency: 0, Machination: 0, Equanimity: 0, Monomania: 0 } },
-      { text: 'As the ability to control minds', scores: { Prescience: 0, Legilimency: 2, Machination: 0, Equanimity: 0, Monomania: 0 } },
-      { text: 'As the ability to shape systems', scores: { Prescience: 0, Legilimency: 0, Machination: 2, Equanimity: 0, Monomania: 1 } },
-      { text: 'As something meaningless without balance', scores: { Prescience: 0, Legilimency: 0, Machination: 0, Equanimity: 2, Monomania: 0 } },
-      { text: 'As a burden I\'d gladly bear', scores: { Prescience: 0, Legilimency: 0, Machination: 0, Equanimity: 0, Monomania: 2 } }
+      { text: 'Master every variable and turn luck into strategy.', scores: { Machination: 1, Monomania: 0, Legilimency: 0, Prescience: 0, Sangfroid: 0 } },
+      { text: 'Achieve what others call impossible.', scores: { Machination: 0, Monomania: 1, Legilimency: 0, Prescience: 0, Sangfroid: 0 } },
+      { text: 'Understand and control every mind around me.', scores: { Machination: 0, Monomania: 0, Legilimency: 1, Prescience: 0, Sangfroid: 0 } },
+      { text: 'See and shape all possible futures.', scores: { Machination: 0, Monomania: 0, Legilimency: 0, Prescience: 1, Sangfroid: 0 } },
+      { text: 'Become untouchable — emotionally and physically.', scores: { Machination: 0, Monomania: 0, Legilimency: 0, Prescience: 0, Sangfroid: 1 } }
     ]
   },
   {
     id: 10,
-    question: 'When victory is near, you feel…',
+    question: 'Which quote resonates with your soul?',
     answers: [
-      { text: 'Quiet satisfaction — the plan worked.', scores: { Prescience: 2, Legilimency: 0, Machination: 1, Equanimity: 0, Monomania: 0 } },
-      { text: 'Thrill from watching others realize their defeat.', scores: { Prescience: 0, Legilimency: 2, Machination: 1, Equanimity: 0, Monomania: 0 } },
-      { text: 'Delight in how perfectly everything unfolded.', scores: { Prescience: 1, Legilimency: 1, Machination: 2, Equanimity: 0, Monomania: 0 } },
-      { text: 'Nothing. Triumph and failure are the same.', scores: { Prescience: 0, Legilimency: 0, Machination: 0, Equanimity: 2, Monomania: 0 } },
-      { text: 'Fire — the hunger never ends.', scores: { Prescience: 0, Legilimency: 0, Machination: 0, Equanimity: 0, Monomania: 2 } }
+      { text: 'Even fate can be bluffed if you know how to deal.', scores: { Machination: 1, Monomania: 0, Legilimency: 0, Prescience: 0, Sangfroid: 0 } },
+      { text: 'The fire in my chest doesn\'t ask for permission — it devours.', scores: { Machination: 0, Monomania: 1, Legilimency: 0, Prescience: 0, Sangfroid: 0 } },
+      { text: 'Every thought has a thread — and I pull the right ones.', scores: { Machination: 0, Monomania: 0, Legilimency: 1, Prescience: 0, Sangfroid: 0 } },
+      { text: 'Every card I play has already been played.', scores: { Machination: 0, Monomania: 0, Legilimency: 0, Prescience: 1, Sangfroid: 0 } },
+      { text: 'When they break, I remain — calm, unshaken, eternal.', scores: { Machination: 0, Monomania: 0, Legilimency: 0, Prescience: 0, Sangfroid: 1 } }
     ]
   }
 ];

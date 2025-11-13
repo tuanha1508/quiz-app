@@ -1,4 +1,4 @@
-export type MasterType = 'Prescience' | 'Legilimency' | 'Machination' | 'Equanimity' | 'Monomania';
+export type MasterType = 'Machination' | 'Monomania' | 'Legilimency' | 'Prescience' | 'Sangfroid';
 
 export interface Master {
   name: MasterType;
