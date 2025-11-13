@@ -205,17 +205,17 @@ export default function ChatBot() {
   const currentQuestion = QUESTIONS[currentQuestionIndex];
 
   return (
-    <div className="w-full max-w-3xl mx-auto flex flex-col h-[80vh] bg-[#0E0000]/50 backdrop-blur-md border border-[#9C0512]/30 rounded-2xl shadow-[0_0_50px_0_rgba(156,5,18,0.15)]">
+    <div className="w-full max-w-3xl mx-auto flex flex-col h-[85vh] sm:h-[80vh] bg-[#0E0000]/50 backdrop-blur-md border border-[#9C0512]/30 rounded-lg sm:rounded-2xl shadow-[0_0_50px_0_rgba(156,5,18,0.15)]">
       {/* Header */}
-      <div className="bg-[#DC2639]/35 backdrop-blur-sm text-white p-4 rounded-t-2xl">
-        <h2 className="text-xl font-bold text-[#EDD794]">Which Elite Council Boss Are You?</h2>
-        <p className="text-sm text-white/80">
+      <div className="bg-[#DC2639]/35 backdrop-blur-sm text-white p-3 sm:p-4 rounded-t-lg sm:rounded-t-2xl">
+        <h2 className="text-base sm:text-xl font-bold text-[#EDD794]">Which Elite Council Boss Are You?</h2>
+        <p className="text-xs sm:text-sm text-white/80">
           Question {currentQuestionIndex + 1} of {QUESTIONS.length}
         </p>
       </div>
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto bg-[#0E0000]/30 backdrop-blur-sm p-4 space-y-4 scrollbar-hide">
+      <div className="flex-1 overflow-y-auto bg-[#0E0000]/30 backdrop-blur-sm p-3 sm:p-4 space-y-3 sm:space-y-4 scrollbar-hide">
         {messages.map((message) => (
           <div
             key={message.id}
@@ -224,7 +224,7 @@ export default function ChatBot() {
             }`}
           >
             <div
-              className={`max-w-[80%] p-3 ${
+              className={`max-w-[85%] sm:max-w-[80%] p-2.5 sm:p-3 ${
                 message.role === 'user'
                   ? 'bg-[#9C0512] text-white border border-[#9C0512]/50 rounded-2xl rounded-tr-[8px]'
                   : 'bg-white/10 text-white rounded-2xl'
@@ -235,7 +235,7 @@ export default function ChatBot() {
                   : undefined
               }
             >
-              <p className="text-sm md:text-base break-words whitespace-pre-wrap">{message.text}</p>
+              <p className="text-sm sm:text-base break-words whitespace-pre-wrap">{message.text}</p>
             </div>
           </div>
         ))}
@@ -263,8 +263,8 @@ export default function ChatBot() {
 
       {/* Suggestions */}
       {!isTyping && !isProcessing && showSuggestions && (
-        <div className="bg-[#0E0000]/30 backdrop-blur-sm p-4 space-y-2 max-h-48 overflow-y-auto scrollbar-hide">
-          <p className="text-xs text-gray-500 mb-2">
+        <div className="bg-[#0E0000]/30 backdrop-blur-sm p-3 sm:p-4 space-y-2 max-h-40 sm:max-h-48 overflow-y-auto scrollbar-hide">
+          <p className="text-xs text-gray-400 mb-2">
             Quick suggestions (or type your own below):
           </p>
           <div className="flex flex-wrap gap-2">
@@ -272,7 +272,7 @@ export default function ChatBot() {
               <button
                 key={idx}
                 onClick={() => handleSuggestionClick(answer)}
-                className="px-3 py-2 bg-[#9C0512]/35 border border-[#9C0512]/50 rounded-full text-sm text-white
+                className="px-2.5 sm:px-3 py-1.5 sm:py-2 bg-[#9C0512]/35 border border-[#9C0512]/50 rounded-full text-xs sm:text-sm text-white
                          hover:bg-[#9C0512] hover:border-[#9C0512]
                          transition-colors text-left break-words whitespace-normal max-w-full cursor-pointer"
                 disabled={isProcessing}
@@ -285,15 +285,15 @@ export default function ChatBot() {
       )}
 
       {/* Input */}
-      <form onSubmit={handleTextSubmit} className="bg-white/5 backdrop-blur-sm p-4 rounded-b-2xl">
+      <form onSubmit={handleTextSubmit} className="bg-white/5 backdrop-blur-sm p-3 sm:p-4 rounded-b-lg sm:rounded-b-2xl">
         <div className="flex gap-2">
           <input
             ref={inputRef}
             type="text"
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
-            placeholder="Type your response or choose a suggestion above..."
-            className="flex-1 px-4 py-2 bg-white/10 border border-white/20 rounded-[14px] text-white placeholder:text-white/50
+            placeholder="Type your response..."
+            className="flex-1 px-3 sm:px-4 py-2 bg-white/10 border border-white/20 rounded-[14px] text-white placeholder:text-white/50 text-sm sm:text-base
                      focus:outline-none
                      disabled:bg-white/10 disabled:opacity-60"
             disabled={isTyping || isProcessing}
@@ -301,8 +301,8 @@ export default function ChatBot() {
           <button
             type="submit"
             disabled={!userInput.trim() || isTyping || isProcessing}
-            className="px-6 py-2 bg-white/10 text-white rounded-[14px] font-semibold
-                     hover:bg-white/20 transition-colors"
+            className="px-4 sm:px-6 py-2 bg-white/10 text-white rounded-[14px] font-semibold text-sm sm:text-base
+                     hover:bg-white/20 transition-colors disabled:opacity-50"
           >
             Send
           </button>
