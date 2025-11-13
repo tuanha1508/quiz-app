@@ -205,9 +205,9 @@ export default function ChatBot() {
   const currentQuestion = QUESTIONS[currentQuestionIndex];
 
   return (
-    <div className="w-full max-w-3xl mx-auto flex flex-col h-[85vh] sm:h-[80vh] bg-[#0E0000]/50 backdrop-blur-md border border-[#9C0512]/30 rounded-lg sm:rounded-2xl shadow-[0_0_50px_0_rgba(156,5,18,0.15)]">
+    <div className="w-full max-w-3xl mx-auto flex flex-col max-h-[90vh] max-h-[90dvh] h-full bg-[#0E0000]/50 backdrop-blur-md border border-[#9C0512]/30 rounded-lg sm:rounded-2xl shadow-[0_0_50px_0_rgba(156,5,18,0.15)]">
       {/* Header */}
-      <div className="bg-[#DC2639]/35 backdrop-blur-sm text-white p-3 sm:p-4 rounded-t-lg sm:rounded-t-2xl">
+      <div className="bg-[#DC2639]/35 backdrop-blur-sm text-white p-3 sm:p-4 rounded-t-lg sm:rounded-t-2xl flex-shrink-0">
         <h2 className="text-base sm:text-xl font-bold text-[#EDD794]">Which Elite Council Boss Are You?</h2>
         <p className="text-xs sm:text-sm text-white/80">
           Question {currentQuestionIndex + 1} of {QUESTIONS.length}
@@ -263,7 +263,7 @@ export default function ChatBot() {
 
       {/* Suggestions */}
       {!isTyping && !isProcessing && showSuggestions && (
-        <div className="bg-[#0E0000]/30 backdrop-blur-sm p-3 sm:p-4 space-y-2 max-h-40 sm:max-h-48 overflow-y-auto scrollbar-hide">
+        <div className="bg-[#0E0000]/30 backdrop-blur-sm p-3 sm:p-4 space-y-2 max-h-40 sm:max-h-48 overflow-y-auto scrollbar-hide flex-shrink-0">
           <p className="text-xs text-gray-400 mb-2">
             Quick suggestions (or type your own below):
           </p>
@@ -285,7 +285,7 @@ export default function ChatBot() {
       )}
 
       {/* Input */}
-      <form onSubmit={handleTextSubmit} className="bg-white/5 backdrop-blur-sm p-3 sm:p-4 rounded-b-lg sm:rounded-b-2xl">
+      <form onSubmit={handleTextSubmit} className="bg-white/5 backdrop-blur-sm p-3 sm:p-4 rounded-b-lg sm:rounded-b-2xl flex-shrink-0">
         <div className="flex gap-2">
           <input
             ref={inputRef}
