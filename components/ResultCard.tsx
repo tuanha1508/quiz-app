@@ -6,57 +6,145 @@ interface ResultCardProps {
 }
 
 export default function ResultCard({ result, onRestart }: ResultCardProps) {
-  const { master, scores } = result;
+  const { master } = result;
 
   return (
-    <div className="w-full max-w-2xl mx-auto">
-      <div className="text-center mb-8">
-        <div className="mb-6">
-          <span className="text-4xl mb-4 block">🕯️</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-2">
-            Your Path Revealed
-          </h2>
-          <h1 className="text-4xl md:text-6xl font-bold text-accent mb-6">
-            {master.name}
-          </h1>
-        </div>
+    <div className="w-full h-full flex items-center justify-center p-4">
+      <div
+        className="w-full max-w-2xl h-[80vh] overflow-y-auto rounded-2xl"
+        style={{
+          background: 'linear-gradient(180deg, #EFEACD 0%, #EDD794 100%)',
+        }}
+      >
+        {/* Scrollable content container */}
+        <div className="flex flex-col items-center p-8 gap-8">
 
-        <div className="bg-primary/5 rounded-lg p-6 mb-6 text-left">
-          <p className="text-primary/80 text-lg leading-relaxed mb-4">
-            {master.description}
-          </p>
-
-          <div className="space-y-3 border-t border-primary/10 pt-4">
-            <div>
-              <span className="font-semibold text-primary">Power: </span>
-              <span className="text-primary/80">{master.power}</span>
-            </div>
-            <div>
-              <span className="font-semibold text-primary">Punishment: </span>
-              <span className="text-primary/80">{master.punishment}</span>
-            </div>
-            <div>
-              <span className="font-semibold text-primary">Trait: </span>
-              <span className="text-primary/80">{master.trait}</span>
-            </div>
+          {/* Personality Section */}
+          <div className="w-full flex flex-col items-center gap-2 pb-6" style={{ borderBottom: '1px solid rgba(156, 5, 18, 0.2)' }}>
+            <h1
+              className="text-center font-normal"
+              style={{
+                fontFamily: 'var(--font-cinzel)',
+                fontSize: '60px',
+                color: '#9C0512',
+                lineHeight: '1.2'
+              }}
+            >
+              {master.name}
+            </h1>
+            <p
+              className="text-center font-normal"
+              style={{
+                fontFamily: 'var(--font-poppins)',
+                fontSize: '20px',
+                color: '#64080C',
+              }}
+            >
+              {master.trait}
+            </p>
           </div>
-        </div>
 
-        <div className="bg-accent/10 rounded-lg p-4 mb-6">
-          <p className="text-primary font-semibold italic text-lg">
-            "{master.motto}"
-          </p>
-        </div>
+          {/* Description Section */}
+          <div className="w-full">
+            <p
+              className="text-center leading-relaxed"
+              style={{
+                fontFamily: 'var(--font-poppins)',
+                fontSize: '16px',
+                color: '#64080C',
+              }}
+            >
+              {master.description}
+            </p>
+          </div>
 
-        <button
-          onClick={onRestart}
-          className="px-8 py-3 bg-primary text-white rounded-lg
-                   hover:bg-primary/90 transition-colors
-                   focus:outline-none focus:ring-2 focus:ring-accent
-                   font-semibold"
-        >
-          Take Quiz Again
-        </button>
+          {/* Power Section */}
+          <div className="w-full flex flex-col items-center gap-2 pb-6" style={{ borderBottom: '1px solid rgba(156, 5, 18, 0.2)' }}>
+            <h2
+              className="font-semibold"
+              style={{
+                fontFamily: 'var(--font-poppins)',
+                fontSize: '20px',
+                color: '#9C0512',
+              }}
+            >
+              Power
+            </h2>
+            <p
+              className="text-center"
+              style={{
+                fontFamily: 'var(--font-poppins)',
+                fontSize: '16px',
+                color: '#64080C',
+              }}
+            >
+              {master.power}
+            </p>
+          </div>
+
+          {/* Punishment Section */}
+          <div className="w-full flex flex-col items-center gap-2 pb-6" style={{ borderBottom: '1px solid rgba(156, 5, 18, 0.2)' }}>
+            <h2
+              className="font-semibold"
+              style={{
+                fontFamily: 'var(--font-poppins)',
+                fontSize: '20px',
+                color: '#9C0512',
+              }}
+            >
+              Punishment
+            </h2>
+            <p
+              className="text-center"
+              style={{
+                fontFamily: 'var(--font-poppins)',
+                fontSize: '16px',
+                color: '#64080C',
+              }}
+            >
+              {master.punishment}
+            </p>
+          </div>
+
+          {/* Motto Section */}
+          <div className="w-full flex flex-col items-center gap-2 pb-6" style={{ borderBottom: '1px solid rgba(156, 5, 18, 0.2)' }}>
+            <h2
+              className="font-semibold"
+              style={{
+                fontFamily: 'var(--font-poppins)',
+                fontSize: '20px',
+                color: '#9C0512',
+              }}
+            >
+              Motto
+            </h2>
+            <p
+              className="text-center italic"
+              style={{
+                fontFamily: 'var(--font-poppins)',
+                fontSize: '16px',
+                color: '#64080C',
+              }}
+            >
+              &ldquo;{master.motto}&rdquo;
+            </p>
+          </div>
+
+          {/* Restart Button */}
+          <button
+            onClick={onRestart}
+            className="px-8 py-3 rounded-lg font-semibold transition-all hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2"
+            style={{
+              fontFamily: 'var(--font-poppins)',
+              fontSize: '16px',
+              backgroundColor: '#9C0512',
+              color: '#FFFFFF',
+              focusRingColor: '#9C0512',
+            }}
+          >
+            Take Quiz Again
+          </button>
+        </div>
       </div>
     </div>
   );
