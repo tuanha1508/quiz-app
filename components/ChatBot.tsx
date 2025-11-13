@@ -12,7 +12,7 @@ import ResultCard from './ResultCard';
 type ChatState = 'intro' | 'chat' | 'result';
 
 export default function ChatBot() {
-  const [state, setState] = useState<ChatState>('intro');
+  const [state, setState] = useState<ChatState>('chat');
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Answer[]>([]);
@@ -31,6 +31,22 @@ export default function ChatBot() {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  // Auto-start chat on component mount
+  useEffect(() => {
+    simulateTyping(() => {
+      addMessage(
+        "Welcome to the Elite Council! I'm here to help you discover which Boss you truly embody. Let's begin...",
+        'bot'
+      );
+      setTimeout(() => {
+        simulateTyping(() => {
+          addMessage(QUESTIONS[0].question, 'bot');
+          setShowSuggestions(true);
+        }, 500);
+      }, 1000);
+    });
+  }, []);
 
   const addMessage = (text: string, role: 'bot' | 'user') => {
     const newMessage: ChatMessage = {
@@ -156,62 +172,30 @@ export default function ChatBot() {
   };
 
   const handleRestart = () => {
-    setState('intro');
+    setState('chat');
     setMessages([]);
     setCurrentQuestionIndex(0);
     setAnswers([]);
     setResult(null);
     setUserInput('');
+    setShowSuggestions(false);
+
+    // Restart with welcome message
+    setTimeout(() => {
+      simulateTyping(() => {
+        addMessage(
+          "Welcome to the Elite Council! I'm here to help you discover which Boss you truly embody. Let's begin...",
+          'bot'
+        );
+        setTimeout(() => {
+          simulateTyping(() => {
+            addMessage(QUESTIONS[0].question, 'bot');
+            setShowSuggestions(true);
+          }, 500);
+        }, 1000);
+      });
+    }, 100);
   };
-
-  if (state === 'intro') {
-    return (
-      <div className="w-full max-w-2xl mx-auto text-center">
-        <div className="mb-8">
-          <h1 className="text-4xl md:text-6xl font-bold text-primary mb-4">
-            Which Master of the Academy Are You?
-          </h1>
-          <p className="text-lg text-primary/70 mb-8">
-            Chat with me to discover your true nature. You can type your own
-            responses or choose from suggestions.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 text-left">
-          {[
-            { name: 'Prescience', trait: 'Calculated & Visionary', emoji: '🔮' },
-            { name: 'Legilimency', trait: 'Manipulative & Intuitive', emoji: '🧠' },
-            { name: 'Machination', trait: 'Devious & Creative', emoji: '⚙️' },
-            { name: 'Equanimity', trait: 'Stoic & Detached', emoji: '🌊' },
-            { name: 'Monomania', trait: 'Obsessed & Relentless', emoji: '🔥' },
-          ].map((master) => (
-            <div
-              key={master.name}
-              className="bg-primary/5 rounded-lg p-4 border border-primary/10"
-            >
-              <div className="flex items-center gap-3">
-                <span className="text-2xl">{master.emoji}</span>
-                <div>
-                  <h3 className="font-bold text-primary">{master.name}</h3>
-                  <p className="text-sm text-primary/60">{master.trait}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <button
-          onClick={handleStart}
-          className="px-8 py-4 bg-primary text-white rounded-lg text-lg font-semibold
-                   hover:bg-primary/90 transition-colors
-                   focus:outline-none focus:ring-2 focus:ring-accent
-                   shadow-lg hover:shadow-xl"
-        >
-          Start Chatting
-        </button>
-      </div>
-    );
-  }
 
   if (state === 'result' && result) {
     return <ResultCard result={result} onRestart={handleRestart} />;
