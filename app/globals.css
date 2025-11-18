@@ -31,10 +31,7 @@ body {
   padding: 0;
   overflow: hidden;
   overscroll-behavior: none;
-  background: url('/background.png') no-repeat center center;
-  background-size: cover;
-  background-attachment: fixed;
-  background-color: #0E0000;
+  background-color: #1D1D1D;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
   position: fixed;
@@ -66,4 +63,26 @@ body {
 .scrollbar-hide {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+}
+
+/* Fade in animation for landing page */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Message bubble slide in animation */
+@keyframes messageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }

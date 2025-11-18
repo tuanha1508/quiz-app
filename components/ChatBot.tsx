@@ -35,23 +35,53 @@ export default function ChatBot() {
 
   // Auto-start chat on component mount
   useEffect(() => {
-    simulateTyping(() => {
+    // Check if messages already exist to prevent duplicate initialization
+    if (messages.length > 0) return;
+
+    let mounted = true;
+
+    const initChat = async () => {
+      if (!mounted) return;
+
+      setIsTyping(true);
+      await new Promise(resolve => setTimeout(resolve, 800));
+
+      if (!mounted) return;
+      setIsTyping(false);
+
       addMessage(
         "Welcome to the Elite Council! I'm here to help you discover which Boss you truly embody. Let's begin...",
         'bot'
       );
+
+      await new Promise(resolve => setTimeout(resolve, 1500));
+
+      if (!mounted) return;
+      setIsTyping(true);
+      await new Promise(resolve => setTimeout(resolve, 500));
+
+      if (!mounted) return;
+      setIsTyping(false);
+      addMessage(QUESTIONS[0].question, 'bot');
+      setShowSuggestions(true);
+
+      // Focus input
       setTimeout(() => {
-        simulateTyping(() => {
-          addMessage(QUESTIONS[0].question, 'bot');
-          setShowSuggestions(true);
-        }, 500);
-      }, 1000);
-    });
+        if (mounted) inputRef.current?.focus();
+      }, 100);
+    };
+
+    initChat();
+
+    // Cleanup function
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   const addMessage = (text: string, role: 'bot' | 'user') => {
     const newMessage: ChatMessage = {
-      id: Date.now().toString(),
+      id: `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
       text,
       role,
       timestamp: new Date(),
@@ -239,8 +269,8 @@ export default function ChatBot() {
             <div
               className={`max-w-[85%] sm:max-w-[80%] p-2.5 sm:p-3 ${
                 message.role === 'user'
-                  ? 'bg-[#9C0512] text-white border border-[#9C0512]/50 rounded-2xl rounded-tr-[8px]'
-                  : 'bg-white/10 text-white rounded-2xl'
+                  ? 'bg-[#9C0512] text-white border border-[#9C0512]/50 rounded-2xl rounded-tr-[8px] animate-[messageSlideIn_0.5s_ease-out_forwards]'
+                  : 'bg-white/10 text-white rounded-2xl animate-[messageSlideIn_0.5s_ease-out_forwards]'
               }`}
               style={
                 message.role === 'user'
