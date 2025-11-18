@@ -39,22 +39,11 @@ export default function ResultCard({ result, onRestart, onChatClick }: ResultCar
 
           {/* NEW: Top Card */}
           <div className="w-full rounded-xl sm:rounded-3xl p-3 sm:p-6 md:p-8 bg-white/30">
-            <p className="text-left leading-relaxed sm:leading-loose mb-2 sm:mb-4 text-xs sm:text-base text-black font-[family-name:var(--font-poppins)]">
-              {master.description}
-            </p>
-            <p className="text-left text-[10px] sm:text-sm font-medium font-[family-name:var(--font-poppins)] text-[#9C0512]">
+            <p className="text-left text-[10px] sm:text-sm font-medium font-[family-name:var(--font-poppins)] text-[#9C0512] mb-2 sm:mb-4">
               Domain: {master.keywords.map(k => k.charAt(0).toUpperCase() + k.slice(1)).join(', ')}
             </p>
-          </div>
-
-          {/* NEW: Secondary Quote Card */}
-          <div className="w-full rounded-xl sm:rounded-3xl p-3 sm:p-6 bg-[#9C0512]/10 border-l-2 border-[#9C0512]">
-            <p className="text-center italic leading-relaxed text-black text-xs sm:text-[15px] font-[family-name:var(--font-poppins)]">
-              &ldquo;{
-                master.name === 'Prescience'
-                  ? 'Knowing is not seeing. It\'s choosing when to look.'
-                  : master.motto
-              }&rdquo;
+            <p className="text-left leading-relaxed sm:leading-loose text-xs sm:text-base text-black font-[family-name:var(--font-poppins)]">
+              {master.description}
             </p>
           </div>
 
