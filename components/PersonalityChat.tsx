@@ -142,8 +142,8 @@ export default function PersonalityChat({ master, onBack }: PersonalityChatProps
             <div
               className={`max-w-[85%] sm:max-w-[80%] p-2.5 sm:p-3 ${
                 message.role === 'user'
-                  ? 'bg-[#9C0512] text-white border border-[#9C0512]/50 rounded-2xl rounded-tr-[8px]'
-                  : 'bg-white/10 text-white rounded-2xl'
+                  ? 'bg-[#9C0512] text-white border border-[#9C0512]/50 rounded-2xl rounded-tr-[8px] animate-[messageSlideIn_0.5s_ease-out_forwards]'
+                  : 'bg-white/10 text-white rounded-2xl animate-[messageSlideIn_0.5s_ease-out_forwards]'
               }`}
               style={
                 message.role === 'user'
