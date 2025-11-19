@@ -28,6 +28,7 @@ export default function PersonalityChat({ master, onBack }: PersonalityChatProps
   ]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [hasAnsweredInitialQuestion, setHasAnsweredInitialQuestion] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -36,10 +37,78 @@ export default function PersonalityChat({ master, onBack }: PersonalityChatProps
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  // Focus input on mount
+  // Focus input on mount (only if initial question is answered)
   useEffect(() => {
-    inputRef.current?.focus();
-  }, []);
+    if (hasAnsweredInitialQuestion) {
+      inputRef.current?.focus();
+    }
+  }, [hasAnsweredInitialQuestion]);
+
+  const handleInitialResponse = async (response: string) => {
+    // Add user's response as a message
+    const userMessage: Message = {
+      id: Date.now().toString(),
+      role: 'user',
+      content: response,
+      timestamp: new Date(),
+    };
+
+    setMessages((prev) => [...prev, userMessage]);
+    setIsTyping(true);
+    setHasAnsweredInitialQuestion(true);
+
+    try {
+      // Prepare conversation history for API
+      const conversationHistory = [...messages, userMessage].map((msg) => ({
+        role: msg.role,
+        content: msg.content,
+      }));
+
+      const apiResponse = await fetch('/api/personality-chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          masterType: master.name,
+          messages: conversationHistory,
+        }),
+      });
+
+      if (!apiResponse.ok) {
+        throw new Error('Failed to get response');
+      }
+
+      const data = await apiResponse.json();
+
+      // Simulate typing delay
+      await new Promise((resolve) => setTimeout(resolve, 800));
+
+      const botMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        role: 'bot',
+        content: data.response,
+        timestamp: new Date(),
+      };
+
+      setMessages((prev) => [...prev, botMessage]);
+    } catch (error) {
+      console.error('Error sending message:', error);
+      const errorMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        role: 'bot',
+        content: 'An error occurred. Try again.',
+        timestamp: new Date(),
+      };
+      setMessages((prev) => [...prev, errorMessage]);
+    } finally {
+      setIsTyping(false);
+      // Focus input after bot responds
+      setTimeout(() => {
+        inputRef.current?.focus();
+      }, 100);
+    }
+  };
 
   const sendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -174,6 +243,28 @@ export default function PersonalityChat({ master, onBack }: PersonalityChatProps
           </div>
         )}
 
+        {/* Yes/No buttons for initial question */}
+        {!hasAnsweredInitialQuestion && !isTyping && (
+          <div className="flex justify-center gap-3 mt-4">
+            <button
+              onClick={() => handleInitialResponse("Yes, I'll be there!")}
+              className="px-6 py-3 bg-[#9C0512] text-white rounded-xl font-semibold text-base
+                       hover:bg-[#DC2639] transition-all transform hover:scale-105
+                       shadow-[0_0_20px_0_rgba(156,5,18,0.3)]"
+            >
+              Yes, I'll attend
+            </button>
+            <button
+              onClick={() => handleInitialResponse("No, I can't make it")}
+              className="px-6 py-3 bg-white/10 text-white rounded-xl font-semibold text-base
+                       hover:bg-white/20 transition-all transform hover:scale-105
+                       border border-white/20"
+            >
+              No, I can't make it
+            </button>
+          </div>
+        )}
+
         <div ref={messagesEndRef} />
       </div>
 
@@ -185,18 +276,22 @@ export default function PersonalityChat({ master, onBack }: PersonalityChatProps
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder={`Speak to ${master.name}...`}
+            placeholder={
+              !hasAnsweredInitialQuestion
+                ? "Please choose Yes or No above first..."
+                : `Speak to ${master.name}...`
+            }
             className="flex-1 px-3 sm:px-4 py-2 bg-white/10 border border-white/20 rounded-[14px] text-white placeholder:text-white/50 text-base
                      focus:outline-none
-                     disabled:bg-white/10 disabled:opacity-60"
-            disabled={isTyping}
+                     disabled:bg-white/5 disabled:opacity-60 disabled:cursor-not-allowed"
+            disabled={isTyping || !hasAnsweredInitialQuestion}
             style={{ fontSize: '16px' }}
           />
           <button
             type="submit"
-            disabled={!input.trim() || isTyping}
+            disabled={!input.trim() || isTyping || !hasAnsweredInitialQuestion}
             className="px-4 sm:px-6 py-2 bg-white/10 text-white rounded-[14px] font-semibold text-sm sm:text-base
-                     hover:bg-white/20 transition-colors disabled:opacity-50"
+                     hover:bg-white/20 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Send
           </button>
