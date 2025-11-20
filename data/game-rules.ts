@@ -105,7 +105,7 @@ ${baccaratRules.cardRankings}
 ${baccaratRules.gameplay}
 ${baccaratRules.winning}
 
-2. TIEN LEN RULES:
+2. TIẾN LÊN RULES:
 ${tienLenRules.objective}
 ${tienLenRules.setup}
 ${tienLenRules.cardRankings}
